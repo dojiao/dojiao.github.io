@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="前端, 网页爬虫, 携程," />
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="多椒的个人博客">
-<meta property="og:url" content="https://dojiao.github.io/index.html">
+<meta name="description" content="原文链接https://segmentfault.com/a/1190000005840672 编者：本文来自携程酒店研发部研发经理崔广宇在第三期【携程技术微分享】上的分享，以下为整理的内容概要。墙裂建议点击视频回放，“现场”围观段子手攻城狮大崔，如何高智商&amp;amp;高情商地完美碾压爬虫。。。关注携程技术中心微信公号ctriptech，可第一时间获知微分享信息~ 你被爬虫侵扰过么？当你看到“爬虫”">
+<meta name="keywords" content="前端, 网页爬虫, 携程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[转] 关于反爬虫，看这一篇就够了">
+<meta property="og:url" content="https://dojiao.github.io/2017/12/24/转-关于反爬虫，看这一篇就够了/index.html">
 <meta property="og:site_name" content="多椒的个人博客">
+<meta property="og:description" content="原文链接https://segmentfault.com/a/1190000005840672 编者：本文来自携程酒店研发部研发经理崔广宇在第三期【携程技术微分享】上的分享，以下为整理的内容概要。墙裂建议点击视频回放，“现场”围观段子手攻城狮大崔，如何高智商&amp;amp;高情商地完美碾压爬虫。。。关注携程技术中心微信公号ctriptech，可第一时间获知微分享信息~ 你被爬虫侵扰过么？当你看到“爬虫”">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-24T00:53:11.486Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多椒的个人博客">
+<meta name="twitter:title" content="[转] 关于反爬虫，看这一篇就够了">
+<meta name="twitter:description" content="原文链接https://segmentfault.com/a/1190000005840672 编者：本文来自携程酒店研发部研发经理崔广宇在第三期【携程技术微分享】上的分享，以下为整理的内容概要。墙裂建议点击视频回放，“现场”围观段子手攻城狮大崔，如何高智商&amp;amp;高情商地完美碾压爬虫。。。关注携程技术中心微信公号ctriptech，可第一时间获知微分享信息~ 你被爬虫侵扰过么？当你看到“爬虫”">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://dojiao.github.io/"/>
+  <link rel="canonical" href="https://dojiao.github.io/2017/12/24/转-关于反爬虫，看这一篇就够了/"/>
 
 
 
 
 
-  <title>多椒的个人博客</title>
+  <title>[转] 关于反爬虫，看这一篇就够了 | 多椒的个人博客</title>
   
 
 
@@ -150,8 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,9 +238,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -266,9 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/24/转-关于反爬虫，看这一篇就够了/" itemprop="url">[转] 关于反爬虫，看这一篇就够了</a></h1>
+          <h1 class="post-title" itemprop="name headline">[转] 关于反爬虫，看这一篇就够了</h1>
         
 
         <div class="post-meta">
@@ -329,9 +331,7 @@
       
 
       
-        
-          
-            <p>原文链接<a href="https://segmentfault.com/a/1190000005840672" target="_blank" rel="noopener">https://segmentfault.com/a/1190000005840672</a></p>
+        <p>原文链接<a href="https://segmentfault.com/a/1190000005840672" target="_blank" rel="noopener">https://segmentfault.com/a/1190000005840672</a></p>
 <p><em>编者：本文来自携程酒店研发部研发经理崔广宇在第三期【携程技术微分享】上的分享，以下为整理的内容概要。墙裂建议点击<a href="http://v.qq.com/page/j/o/t/j0308hykvot.html" target="_blank" rel="noopener">视频回放</a>，“现场”围观段子手攻城狮大崔，如何高智商&amp;高情商地完美碾压爬虫。。。关注携程技术中心微信公号ctriptech，可第一时间获知微分享信息~</em></p>
 <p><em>你被爬虫侵扰过么？当你看到“爬虫”两个字的时候，是不是已经有点血脉贲张的感觉了？千万要忍耐，稍稍做点什么，就可以在名义上让他们胜利，实际上让他们受损失。</em></p>
 <h1 id="一、为什么要反爬虫"><a href="#一、为什么要反爬虫" class="headerlink" title="一、为什么要反爬虫"></a>一、为什么要反爬虫</h1><h2 id="1、爬虫占总PV比例较高，这样浪费钱（尤其是三月份爬虫）。"><a href="#1、爬虫占总PV比例较高，这样浪费钱（尤其是三月份爬虫）。" class="headerlink" title="1、爬虫占总PV比例较高，这样浪费钱（尤其是三月份爬虫）。"></a>1、爬虫占总PV比例较高，这样浪费钱（尤其是三月份爬虫）。</h2><p>三月份爬虫是个什么概念呢？每年的三月份我们会迎接一次爬虫高峰期。</p>
@@ -446,8 +446,6 @@
 <p>程序员都不容易，做爬虫的尤其不容易。可怜可怜他们给他们一小口饭吃吧。没准过几天你就因为反爬虫做得好，改行做爬虫了。</p>
 <p>比如，前一阵子就有人找我问我会不会做爬虫。。。。。我这么善良的人，能说不会吗？？？？</p>
 
-          
-        
       
     </div>
     
@@ -462,286 +460,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dojiao.github.io/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dojiao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="多椒的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/" itemprop="url">[转] ajax跨域，这应该是最全的解决方案了</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-24T09:34:54+09:00">
-                2017-12-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/前端-网页爬虫-携程/" rel="tag"># 前端, 网页爬虫, 携程</a>
           
-            
-          
-
-          
-          
-             <span id="/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/" class="leancloud_visitors" data-flag-title="[转] ajax跨域，这应该是最全的解决方案了">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>原文链接<a href="https://dailc.github.io/2017/03/22/ajaxCrossDomainSolution.html" target="_blank" rel="noopener">https://dailc.github.io/2017/03/22/ajaxCrossDomainSolution.html</a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>从刚接触前端开发起，<code>跨域</code>这个词就一直以很高的频率在身边重复出现，一直到现在，已经调试过N个跨域相关的问题了，16年时也整理过一篇相关文章，但是感觉还是差了点什么，于是现在重新梳理了一下。</p>
-<p>个人见识有限，如有差错，请多多见谅，欢迎提出issue，另外看到这个标题，请勿喷~</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/" rel="next" title="[转] ajax跨域，这应该是最全的解决方案了">
+                <i class="fa fa-chevron-left"></i> [转] ajax跨域，这应该是最全的解决方案了
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dojiao.github.io/2017/12/24/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dojiao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="多椒的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/24/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-24T07:16:29+09:00">
-                2017-12-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/12/24/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/24/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -751,10 +499,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -762,6 +511,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -782,8 +535,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -840,6 +602,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、为什么要反爬虫"><span class="nav-number">1.</span> <span class="nav-text">一、为什么要反爬虫</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、爬虫占总PV比例较高，这样浪费钱（尤其是三月份爬虫）。"><span class="nav-number">1.1.</span> <span class="nav-text">1、爬虫占总PV比例较高，这样浪费钱（尤其是三月份爬虫）。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、公司可免费查询的资源被批量抓走，丧失竞争力，这样少赚钱。"><span class="nav-number">1.2.</span> <span class="nav-text">2、公司可免费查询的资源被批量抓走，丧失竞争力，这样少赚钱。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、爬虫是否涉嫌违法？-如果是的话，是否可以起诉要求赔偿？这样可以赚钱。"><span class="nav-number">1.3.</span> <span class="nav-text">3、爬虫是否涉嫌违法？ 如果是的话，是否可以起诉要求赔偿？这样可以赚钱。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、反什么样的爬虫"><span class="nav-number">2.</span> <span class="nav-text">二、反什么样的爬虫</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、十分低级的应届毕业生"><span class="nav-number">2.1.</span> <span class="nav-text">1、十分低级的应届毕业生</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、十分低级的创业小公司"><span class="nav-number">2.2.</span> <span class="nav-text">2、十分低级的创业小公司</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、不小心写错了没人去停止的失控小爬虫"><span class="nav-number">2.3.</span> <span class="nav-text">3、不小心写错了没人去停止的失控小爬虫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、成型的商业对手"><span class="nav-number">2.4.</span> <span class="nav-text">4、成型的商业对手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、抽风的搜索引擎"><span class="nav-number">2.5.</span> <span class="nav-text">5、抽风的搜索引擎</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、什么是爬虫和反爬虫"><span class="nav-number">3.</span> <span class="nav-text">三、什么是爬虫和反爬虫</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、知己知彼：如何编写简单爬虫"><span class="nav-number">4.</span> <span class="nav-text">四、知己知彼：如何编写简单爬虫</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、知己知彼：如何编写高级爬虫"><span class="nav-number">5.</span> <span class="nav-text">五、知己知彼：如何编写高级爬虫</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式"><span class="nav-number">5.1.</span> <span class="nav-text">分布式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模拟JavaScript"><span class="nav-number">5.2.</span> <span class="nav-text">模拟JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PhantomJs"><span class="nav-number">5.3.</span> <span class="nav-text">PhantomJs</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、不同级别爬虫的优缺点"><span class="nav-number">6.</span> <span class="nav-text">六、不同级别爬虫的优缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、如何设计一个反爬虫系统-常规架构"><span class="nav-number">7.</span> <span class="nav-text">七、如何设计一个反爬虫系统(常规架构)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#传统反爬虫手段"><span class="nav-number">7.1.</span> <span class="nav-text">传统反爬虫手段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eval"><span class="nav-number">7.2.</span> <span class="nav-text">eval</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#goto"><span class="nav-number">7.3.</span> <span class="nav-text">goto</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混淆"><span class="nav-number">7.4.</span> <span class="nav-text">混淆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不稳定代码"><span class="nav-number">7.5.</span> <span class="nav-text">不稳定代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码演示"><span class="nav-number">7.6.</span> <span class="nav-text">代码演示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器检测"><span class="nav-number">7.7.</span> <span class="nav-text">浏览器检测</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#八、我抓到你了——然后该怎么办"><span class="nav-number">8.</span> <span class="nav-text">八、我抓到你了——然后该怎么办</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、技术压制"><span class="nav-number">8.1.</span> <span class="nav-text">1、技术压制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、心理战"><span class="nav-number">8.2.</span> <span class="nav-text">2、心理战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、放水"><span class="nav-number">8.3.</span> <span class="nav-text">3、放水</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -973,6 +751,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
