@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="C语言,数据结构," />
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="多椒的个人博客">
-<meta property="og:url" content="https://dojiao.github.io/index.html">
+<meta name="description" content="原文链接http://www.cnblogs.com/llhthinker/p/4907552.html 通常来说，要实现循环双向链表，每个节点需要有两个链域：前驱和后继。现在的问题是：如何设计一种环形表，使表的每个结点只包含一个链域而又能够有效地对其进行两个方向的查找。本文将给出一种实现方式。">
+<meta name="keywords" content="C语言,数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[转] 用只含一个链域的节点实现循环链表的双向遍历">
+<meta property="og:url" content="https://dojiao.github.io/2017/12/24/转-用只含一个链域的节点实现循环链表的双向遍历/index.html">
 <meta property="og:site_name" content="多椒的个人博客">
+<meta property="og:description" content="原文链接http://www.cnblogs.com/llhthinker/p/4907552.html 通常来说，要实现循环双向链表，每个节点需要有两个链域：前驱和后继。现在的问题是：如何设计一种环形表，使表的每个结点只包含一个链域而又能够有效地对其进行两个方向的查找。本文将给出一种实现方式。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-24T02:07:11.938Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多椒的个人博客">
+<meta name="twitter:title" content="[转] 用只含一个链域的节点实现循环链表的双向遍历">
+<meta name="twitter:description" content="原文链接http://www.cnblogs.com/llhthinker/p/4907552.html 通常来说，要实现循环双向链表，每个节点需要有两个链域：前驱和后继。现在的问题是：如何设计一种环形表，使表的每个结点只包含一个链域而又能够有效地对其进行两个方向的查找。本文将给出一种实现方式。">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://dojiao.github.io/"/>
+  <link rel="canonical" href="https://dojiao.github.io/2017/12/24/转-用只含一个链域的节点实现循环链表的双向遍历/"/>
 
 
 
 
 
-  <title>多椒的个人博客</title>
+  <title>[转] 用只含一个链域的节点实现循环链表的双向遍历 | 多椒的个人博客</title>
   
 
 
@@ -150,8 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,9 +238,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -266,9 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/24/转-用只含一个链域的节点实现循环链表的双向遍历/" itemprop="url">[转] 用只含一个链域的节点实现循环链表的双向遍历</a></h1>
+          <h1 class="post-title" itemprop="name headline">[转] 用只含一个链域的节点实现循环链表的双向遍历</h1>
         
 
         <div class="post-meta">
@@ -329,17 +331,101 @@
       
 
       
-        
-          <p>原文链接<a href="http://www.cnblogs.com/llhthinker/p/4907552.html" target="_blank" rel="noopener">http://www.cnblogs.com/llhthinker/p/4907552.html</a></p>
+        <p>原文链接<a href="http://www.cnblogs.com/llhthinker/p/4907552.html" target="_blank" rel="noopener">http://www.cnblogs.com/llhthinker/p/4907552.html</a></p>
 <p>通常来说，要实现循环双向链表，每个节点需要有两个链域：前驱和后继。现在的问题是：如何设计一种环形表，使表的每个结点只包含一个链域而又能够有效地对其进行两个方向的查找。本文将给出一种实现方式。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/24/转-用只含一个链域的节点实现循环链表的双向遍历/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<a id="more"></a>
+<p>首先，在给出之前，需要先了解一种有趣的运算，那就是异或运算。异或运算的真值表如下：</p>
+<table border="0"><tr><td style="text-align: center;"><span style="font-size: 16px;">A</span></td><td style="text-align: center;"><span style="font-size: 16px;">B</span></td><td style="text-align: center;"><span style="font-size: 16px;">A^B</span></td></tr><tr><td style="text-align: center;"><span style="font-size: 16px;">0</span></td><td style="text-align: center;"><span style="font-size: 16px;">0</span></td><td style="text-align: center;"><span style="font-size: 16px;">0</span></td></tr><tr><td style="text-align: center;"><span style="font-size: 16px;">0</span></td><td style="text-align: center;"><span style="font-size: 16px;">1</span></td><td style="text-align: center;"><span style="font-size: 16px;">1</span></td></tr><tr><td style="text-align: center;"><span style="font-size: 16px;">1</span></td><td style="text-align: center;"><span style="font-size: 16px;">0</span></td><td style="text-align: center;"><span style="font-size: 16px;">1</span></td></tr><tr><td style="text-align: center;"><span style="font-size: 16px;">1</span></td><td style="text-align: center;"><span style="font-size: 16px;">1</span></td><td style="text-align: center;"><span style="font-size: 16px;">0</span></td></tr></table>
+
+<p>通过异或的性质可以知道，对于任意一个二进制数a，有a^a = 0。利用这一性质，考虑下面一个经典例子：实现两个整数的交换</p>
+<pre><code>void swap(int *x, int *y)
+{
+    *y = *x ^ *y;    /* step 1 */
+    *x = *x ^ *y;    /* step 2 */
+    *y = *x ^ *y;    /* step 3 */
+}
+</code></pre><p>为什么上述代码可以实现两个数的交换？以调用swap(&amp;a, &amp;b)为例，下表给出了解释：</p>
+<table border="0"><tr><td style="text-align: center;"><span style="font-size: 16px;">step</span></td><td style="text-align: center;"><span style="font-size: 16px;"><em>x</em></span></td><td style="text-align: center;"><span style="font-size: 16px;">y</span></td></tr><tr><td style="text-align: center;"><span style="font-size: 16px;">Initialization</span></td><td style="text-align: center;"><span style="font-size: 16px;">a</span></td><td style="text-align: center;"><span style="font-size: 16px;">b</span></td></tr><tr><td style="text-align: center;"><span style="font-size: 16px;">step 1</span></td><td style="text-align: center;"><span style="font-size: 16px;">a</span></td><td style="text-align: center;"><span style="font-size: 16px;">a^b</span></td></tr><tr><td style="text-align: center;"><span style="font-size: 16px;">step 2</span></td><td style="text-align: center;"><span style="font-size: 16px;">a^a^b=0^b=b</span></td><td style="text-align: center;"><span style="font-size: 16px;">a^b</span></td></tr><tr><td style="text-align: center;"><span style="font-size: 16px;">step 3</span></td><td style="text-align: center;"><span style="font-size: 16px;">b</span></td><td style="text-align: center;"><span style="font-size: 16px;">b^a^b=0^a=a</span></td></tr></table>
+
+<p>是的，通过上表可以知道，利用a^a = 0，我们可以这样“高大上”的实现两个数的交换(事实上，这种交换方式并没有性能上的优势)。但是我们可以借助它来理解异或运算。通过上表我们更加可以总结出公式a^a^b = b。这对于本文要解决的问题有什么启示呢？</p>
+<p>要使得表的每个结点只包含一个链域而又能够有效地对其进行两个方向的查找，可以让节点的链域存结点的前驱prev和后继next的异或，再利用异或运算的性质，可以得到(prev ^ next) ^ next = prev; (prev ^ next) ^ prev = next 。我们可以把异或的链域看成一把特殊的锁，它有两把不同的钥匙，用钥匙next就可以打开前驱prev的门，而用钥匙prev就可以打开后继next的门。</p>
+<p>环形表的设计如下：</p>
+<pre><code>typedef struct Node *Position;
+typedef Position RingList;
+struct Node
+{
+    int data;
+    Position prevXORnext;        //前驱和后继的异或
+};
+</code></pre><p>在创建环形链表时，首先建立一个头节点rL，并申明节点指针prev和next，为了让头节点的链域可以直接指向第一个节点firstP，将prev初始化为0，由于0和某值的异或不会改变该值，故rL-&gt;prevXORnext = prev^next = 0^next。不过注意Position型不能直接做异或运算，需要强转为long long 型算出结果后再强转为Position型。(由于Position为结构体指针，指针的内存大小在32位机上为4个字节即32位，在64位机上是8个字节，所以为了通用性，将其转化为long long而不是int)</p>
+<p>创建环形链表函数如下：</p>
+<pre><code>RingList CreateRingList(Position *prevNode, Position *nextNode)
+{
+    RingList rL = new Node; //头结点
+    int x;
+    Position p = rL;
+    Position prev = 0;   //初始头节点的异或就相当于next
+    Position next;
+    Position firstP = NULL, secondP = NULL;
+    int n = 0;
+    while (scanf(&quot;%d&quot;, &amp;x) != EOF)
+    {
+        n++;
+        Position newP = new Node;
+        if (n == 1)
+            firstP = newP;
+        if (n == 2)
+            secondP = newP;   //保存第二个节点的指针便于之后更新第一个节点
+        newP-&gt;data = x;
+        next = newP;
+        p-&gt;prevXORnext = (Position)((LL)prev ^ (LL)next);  //LL为long long
+        prev = p;
+        p = newP;
+    }
+    //将尾指针的链域与第一个节点相关联
+    p-&gt;prevXORnext = (Position)((LL)prev ^ (LL)firstP);
+    //形成环后，更新第一个节点的链域
+    firstP-&gt;prevXORnext = (Position)((LL)p ^ (LL)secondP);
+    *prevNode = p;
+    *nextNode = secondP;
+    return rL;
+}
+</code></pre><p>如果我们要查找p结点的后继，只需要在之前临时保存p结点的前驱prev，然后令p = p-&gt;prevXORnext^prev，根据异或运算的性质可知当前p即为之前p的后继next。同理，如果要查找p结点的前驱，只需要在之前临时保存p结点的后继next，然后令p = p-&gt;prevXORnext^next，此时p即为之前p的前驱prev。</p>
+<p>顺时针访问函数如下：</p>
+<pre><code>void ClockWise(RingList rL, Position prev2)
+{
+    Position firstP = rL-&gt;prevXORnext;
+    Position prev1 = firstP;
+    printf(&quot;%d&quot;, firstP-&gt;data);
+    Position cur = (Position)((LL)prev1-&gt;prevXORnext ^ (LL)(prev2));
+    while (cur != firstP)
+    {
+        printf(&quot; %d&quot;, cur-&gt;data);
+        prev2 = prev1;
+        prev1 = cur;
+        cur = (Position)((LL)prev1-&gt;prevXORnext ^ (LL)(prev2));
+    }
+    printf(&quot;\n&quot;);
+}
+</code></pre><p>逆时针访问函数如下：</p>
+<pre><code>void AntiClockWise(RingList rL, Position next2)
+{
+    Position firstP = rL-&gt;prevXORnext;
+    Position next1 = firstP;
+    printf(&quot;%d&quot;, firstP-&gt;data);
+    Position cur = (Position)((LL)next1-&gt;prevXORnext ^ (LL)(next2));
+    while (cur != firstP)
+    {
+        printf(&quot; %d&quot;, cur-&gt;data);
+        next2 = next1;
+        next1 = cur;
+        cur = (Position)((LL)next1-&gt;prevXORnext ^ (LL)(next2));
+    }
+    printf(&quot;\n&quot;);
+}
+</code></pre><p>下面是完整代码：</p>
+<details><br><summary>View Code</summary><br><pre><code><br>#include <cstdio><br><br>using namespace std;<br><br>typedef long long LL;<br>typedef struct Node <em>Position;<br>typedef Position RingList;<br>struct Node<br>{<br>    int data;<br>    Position prevXORnext;<br>};<br><br>void ClockWise(RingList rL, Position prev2);             //顺时针<br>void AntiClockWise(RingList rL, Position next);          //逆时针<br>RingList CreateRingList(Position </em>prev, Position <em>next); //创建环形链表<br><br>int main()<br>{<br>    Position prev, next;<br>    RingList rL = CreateRingList(&amp;prev, &amp;next);<br><br>    printf(“顺时针：”);<br>    ClockWise(rL, prev);<br>    printf(“逆时针：”);<br>    AntiClockWise(rL, next);<br><br>    return 0;<br>}<br><br>RingList CreateRingList(Position </em>prevNode, Position <em>nextNode)<br>{<br>    RingList rL = new Node; //头结点<br>    int x;<br>    Position p = rL;<br>    Position prev = 0;   //初始头节点的异或就相当于next，而0异或某个数等于它本身<br>    Position next;<br>    Position firstP = NULL, secondP = NULL;<br>    int n = 0;<br>    while (scanf(“%d”, &amp;x) != EOF)<br>    {<br>        n++;<br>        Position newP = new Node;<br>        if (n == 1)<br>            firstP = newP;<br>        if (n == 2)<br>            secondP = newP;     //保存第二个节点的指针便于之后更新第一个节点<br>        newP-&gt;data = x;<br>        next = newP;<br>        p-&gt;prevXORnext = (Position)((LL)prev ^ (LL)next);<br>        prev = p;<br>        p = newP;<br>    }<br>    //将尾指针的链域与第一个节点相关联<br>    p-&gt;prevXORnext = (Position)((LL)prev ^ (LL)firstP);<br>    //形成环后，更新第一个节点的链域<br>    firstP-&gt;prevXORnext = (Position)((LL)p ^ (LL)secondP);
+    </em>prevNode = p;<br>    *nextNode = secondP;<br>    return rL;<br>}<br>void ClockWise(RingList rL, Position prev2)<br>{<br>    Position firstP = rL-&gt;prevXORnext;<br>    Position prev1 = firstP;<br>    printf(“%d”, firstP-&gt;data);<br>    Position cur = (Position)((LL)prev1-&gt;prevXORnext ^ (LL)(prev2));<br>    while (cur != firstP)<br>    {<br>        printf(“ %d”, cur-&gt;data);<br>        prev2 = prev1;<br>        prev1 = cur;<br>        cur = (Position)((LL)prev1-&gt;prevXORnext ^ (LL)(prev2));<br>    }<br>    printf(“\n”);<br>}<br><br>void AntiClockWise(RingList rL, Position next2)<br>{<br>    Position firstP = rL-&gt;prevXORnext;<br>    Position next1 = firstP;<br>    printf(“%d”, firstP-&gt;data);<br>    Position cur = (Position)((LL)next1-&gt;prevXORnext ^ (LL)(next2));<br>    while (cur != firstP)<br>    {<br>        printf(“ %d”, cur-&gt;data);<br>        next2 = next1;<br>        next1 = cur;<br>        cur = (Position)((LL)next1-&gt;prevXORnext ^ (LL)(next2));<br>    }<br>    printf(“\n”);<br>}<br></cstdio></code></pre><br></details>
       
     </div>
     
@@ -354,288 +440,38 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dojiao.github.io/2017/12/24/转-关于反爬虫，看这一篇就够了/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dojiao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="多椒的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/24/转-关于反爬虫，看这一篇就够了/" itemprop="url">[转] 关于反爬虫，看这一篇就够了</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-24T09:44:14+09:00">
-                2017-12-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/C语言/" rel="tag"># C语言</a>
           
-            
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
           
-
-          
-          
-             <span id="/2017/12/24/转-关于反爬虫，看这一篇就够了/" class="leancloud_visitors" data-flag-title="[转] 关于反爬虫，看这一篇就够了">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>原文链接<a href="https://segmentfault.com/a/1190000005840672" target="_blank" rel="noopener">https://segmentfault.com/a/1190000005840672</a></p>
-<p><em>编者：本文来自携程酒店研发部研发经理崔广宇在第三期【携程技术微分享】上的分享，以下为整理的内容概要。墙裂建议点击<a href="http://v.qq.com/page/j/o/t/j0308hykvot.html" target="_blank" rel="noopener">视频回放</a>，“现场”围观段子手攻城狮大崔，如何高智商&amp;高情商地完美碾压爬虫。。。关注携程技术中心微信公号ctriptech，可第一时间获知微分享信息~</em></p>
-<p><em>你被爬虫侵扰过么？当你看到“爬虫”两个字的时候，是不是已经有点血脉贲张的感觉了？千万要忍耐，稍稍做点什么，就可以在名义上让他们胜利，实际上让他们受损失。</em></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/24/转-关于反爬虫，看这一篇就够了/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/24/转-关于反爬虫，看这一篇就够了/" rel="next" title="[转] 关于反爬虫，看这一篇就够了">
+                <i class="fa fa-chevron-left"></i> [转] 关于反爬虫，看这一篇就够了
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dojiao.github.io/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dojiao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="多椒的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/" itemprop="url">[转] ajax跨域，这应该是最全的解决方案了</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-24T09:34:54+09:00">
-                2017-12-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/" class="leancloud_visitors" data-flag-title="[转] ajax跨域，这应该是最全的解决方案了">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>原文链接<a href="https://dailc.github.io/2017/03/22/ajaxCrossDomainSolution.html" target="_blank" rel="noopener">https://dailc.github.io/2017/03/22/ajaxCrossDomainSolution.html</a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>从刚接触前端开发起，<code>跨域</code>这个词就一直以很高的频率在身边重复出现，一直到现在，已经调试过N个跨域相关的问题了，16年时也整理过一篇相关文章，但是感觉还是差了点什么，于是现在重新梳理了一下。</p>
-<p>个人见识有限，如有差错，请多多见谅，欢迎提出issue，另外看到这个标题，请勿喷~</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -645,145 +481,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dojiao.github.io/2017/12/24/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dojiao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="多椒的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/24/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-24T07:16:29+09:00">
-                2017-12-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/12/24/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/24/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -791,6 +493,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1002,6 +708,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
