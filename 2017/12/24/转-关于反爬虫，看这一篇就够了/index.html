@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="多椒的个人博客">
 <meta property="og:description" content="原文链接https://segmentfault.com/a/1190000005840672 编者：本文来自携程酒店研发部研发经理崔广宇在第三期【携程技术微分享】上的分享，以下为整理的内容概要。墙裂建议点击视频回放，“现场”围观段子手攻城狮大崔，如何高智商&amp;amp;高情商地完美碾压爬虫。。。关注携程技术中心微信公号ctriptech，可第一时间获知微分享信息~ 你被爬虫侵扰过么？当你看到“爬虫”">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-24T00:53:11.486Z">
+<meta property="og:updated_time" content="2017-12-24T00:54:47.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[转] 关于反爬虫，看这一篇就够了">
 <meta name="twitter:description" content="原文链接https://segmentfault.com/a/1190000005840672 编者：本文来自携程酒店研发部研发经理崔广宇在第三期【携程技术微分享】上的分享，以下为整理的内容概要。墙裂建议点击视频回放，“现场”围观段子手攻城狮大崔，如何高智商&amp;amp;高情商地完美碾压爬虫。。。关注携程技术中心微信公号ctriptech，可第一时间获知微分享信息~ 你被爬虫侵扰过么？当你看到“爬虫”">
@@ -334,6 +334,7 @@
         <p>原文链接<a href="https://segmentfault.com/a/1190000005840672" target="_blank" rel="noopener">https://segmentfault.com/a/1190000005840672</a></p>
 <p><em>编者：本文来自携程酒店研发部研发经理崔广宇在第三期【携程技术微分享】上的分享，以下为整理的内容概要。墙裂建议点击<a href="http://v.qq.com/page/j/o/t/j0308hykvot.html" target="_blank" rel="noopener">视频回放</a>，“现场”围观段子手攻城狮大崔，如何高智商&amp;高情商地完美碾压爬虫。。。关注携程技术中心微信公号ctriptech，可第一时间获知微分享信息~</em></p>
 <p><em>你被爬虫侵扰过么？当你看到“爬虫”两个字的时候，是不是已经有点血脉贲张的感觉了？千万要忍耐，稍稍做点什么，就可以在名义上让他们胜利，实际上让他们受损失。</em></p>
+<a id="more"></a>
 <h1 id="一、为什么要反爬虫"><a href="#一、为什么要反爬虫" class="headerlink" title="一、为什么要反爬虫"></a>一、为什么要反爬虫</h1><h2 id="1、爬虫占总PV比例较高，这样浪费钱（尤其是三月份爬虫）。"><a href="#1、爬虫占总PV比例较高，这样浪费钱（尤其是三月份爬虫）。" class="headerlink" title="1、爬虫占总PV比例较高，这样浪费钱（尤其是三月份爬虫）。"></a>1、爬虫占总PV比例较高，这样浪费钱（尤其是三月份爬虫）。</h2><p>三月份爬虫是个什么概念呢？每年的三月份我们会迎接一次爬虫高峰期。</p>
 <p>最初我们百思不得其解。直到有一次，四月份的时候，我们删除了一个url，然后有个爬虫不断的爬取url，导致大量报错，测试开始找我们麻烦。我们只好特意为这个爬虫发布了一次站点，把删除的url又恢复回去了。</p>
 <p>但是当时我们的一个组员表示很不服，说，我们不能干掉爬虫，也就罢了，还要专门为它发布，这实在是太没面子了。于是出了个主意，说：url可以上，但是，绝对不给真实数据。</p>
