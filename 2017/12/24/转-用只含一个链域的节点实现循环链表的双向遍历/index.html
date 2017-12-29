@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="多椒的个人博客">
 <meta property="og:description" content="原文链接http://www.cnblogs.com/llhthinker/p/4907552.html 通常来说，要实现循环双向链表，每个节点需要有两个链域：前驱和后继。现在的问题是：如何设计一种环形表，使表的每个结点只包含一个链域而又能够有效地对其进行两个方向的查找。本文将给出一种实现方式。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-24T02:07:11.938Z">
+<meta property="og:updated_time" content="2017-12-29T06:52:10.748Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[转] 用只含一个链域的节点实现循环链表的双向遍历">
 <meta name="twitter:description" content="原文链接http://www.cnblogs.com/llhthinker/p/4907552.html 通常来说，要实现循环双向链表，每个节点需要有两个链域：前驱和后继。现在的问题是：如何设计一种环形表，使表的每个结点只包含一个链域而又能够有效地对其进行两个方向的查找。本文将给出一种实现方式。">
@@ -424,8 +424,8 @@ struct Node
     printf(&quot;\n&quot;);
 }
 </code></pre><p>下面是完整代码：</p>
-<details><br><summary>View Code</summary><br><pre><code><br>#include <cstdio><br><br>using namespace std;<br><br>typedef long long LL;<br>typedef struct Node <em>Position;<br>typedef Position RingList;<br>struct Node<br>{<br>    int data;<br>    Position prevXORnext;<br>};<br><br>void ClockWise(RingList rL, Position prev2);             //顺时针<br>void AntiClockWise(RingList rL, Position next);          //逆时针<br>RingList CreateRingList(Position </em>prev, Position <em>next); //创建环形链表<br><br>int main()<br>{<br>    Position prev, next;<br>    RingList rL = CreateRingList(&amp;prev, &amp;next);<br><br>    printf(“顺时针：”);<br>    ClockWise(rL, prev);<br>    printf(“逆时针：”);<br>    AntiClockWise(rL, next);<br><br>    return 0;<br>}<br><br>RingList CreateRingList(Position </em>prevNode, Position <em>nextNode)<br>{<br>    RingList rL = new Node; //头结点<br>    int x;<br>    Position p = rL;<br>    Position prev = 0;   //初始头节点的异或就相当于next，而0异或某个数等于它本身<br>    Position next;<br>    Position firstP = NULL, secondP = NULL;<br>    int n = 0;<br>    while (scanf(“%d”, &amp;x) != EOF)<br>    {<br>        n++;<br>        Position newP = new Node;<br>        if (n == 1)<br>            firstP = newP;<br>        if (n == 2)<br>            secondP = newP;     //保存第二个节点的指针便于之后更新第一个节点<br>        newP-&gt;data = x;<br>        next = newP;<br>        p-&gt;prevXORnext = (Position)((LL)prev ^ (LL)next);<br>        prev = p;<br>        p = newP;<br>    }<br>    //将尾指针的链域与第一个节点相关联<br>    p-&gt;prevXORnext = (Position)((LL)prev ^ (LL)firstP);<br>    //形成环后，更新第一个节点的链域<br>    firstP-&gt;prevXORnext = (Position)((LL)p ^ (LL)secondP);
-    </em>prevNode = p;<br>    *nextNode = secondP;<br>    return rL;<br>}<br>void ClockWise(RingList rL, Position prev2)<br>{<br>    Position firstP = rL-&gt;prevXORnext;<br>    Position prev1 = firstP;<br>    printf(“%d”, firstP-&gt;data);<br>    Position cur = (Position)((LL)prev1-&gt;prevXORnext ^ (LL)(prev2));<br>    while (cur != firstP)<br>    {<br>        printf(“ %d”, cur-&gt;data);<br>        prev2 = prev1;<br>        prev1 = cur;<br>        cur = (Position)((LL)prev1-&gt;prevXORnext ^ (LL)(prev2));<br>    }<br>    printf(“\n”);<br>}<br><br>void AntiClockWise(RingList rL, Position next2)<br>{<br>    Position firstP = rL-&gt;prevXORnext;<br>    Position next1 = firstP;<br>    printf(“%d”, firstP-&gt;data);<br>    Position cur = (Position)((LL)next1-&gt;prevXORnext ^ (LL)(next2));<br>    while (cur != firstP)<br>    {<br>        printf(“ %d”, cur-&gt;data);<br>        next2 = next1;<br>        next1 = cur;<br>        cur = (Position)((LL)next1-&gt;prevXORnext ^ (LL)(next2));<br>    }<br>    printf(“\n”);<br>}<br></cstdio></code></pre><br></details>
+<details><br><summary>View Code</summary><br><pre><br><code><br>#include <cstdio><br><br>using namespace std;<br><br>typedef long long LL;<br>typedef struct Node <em>Position;<br>typedef Position RingList;<br>struct Node<br>{<br>    int data;<br>    Position prevXORnext;<br>};<br><br>void ClockWise(RingList rL, Position prev2);             //顺时针<br>void AntiClockWise(RingList rL, Position next);          //逆时针<br>RingList CreateRingList(Position </em>prev, Position <em>next); //创建环形链表<br><br>int main()<br>{<br>    Position prev, next;<br>    RingList rL = CreateRingList(&amp;prev, &amp;next);<br><br>    printf(“顺时针：”);<br>    ClockWise(rL, prev);<br>    printf(“逆时针：”);<br>    AntiClockWise(rL, next);<br><br>    return 0;<br>}<br><br>RingList CreateRingList(Position </em>prevNode, Position <em>nextNode)<br>{<br>    RingList rL = new Node; //头结点<br>    int x;<br>    Position p = rL;<br>    Position prev = 0;   //初始头节点的异或就相当于next，而0异或某个数等于它本身<br>    Position next;<br>    Position firstP = NULL, secondP = NULL;<br>    int n = 0;<br>    while (scanf(“%d”, &amp;x) != EOF)<br>    {<br>        n++;<br>        Position newP = new Node;<br>        if (n == 1)<br>            firstP = newP;<br>        if (n == 2)<br>            secondP = newP;     //保存第二个节点的指针便于之后更新第一个节点<br>        newP-&gt;data = x;<br>        next = newP;<br>        p-&gt;prevXORnext = (Position)((LL)prev ^ (LL)next);<br>        prev = p;<br>        p = newP;<br>    }<br>    //将尾指针的链域与第一个节点相关联<br>    p-&gt;prevXORnext = (Position)((LL)prev ^ (LL)firstP);<br>    //形成环后，更新第一个节点的链域<br>    firstP-&gt;prevXORnext = (Position)((LL)p ^ (LL)secondP);
+    </em>prevNode = p;<br>    *nextNode = secondP;<br>    return rL;<br>}<br>void ClockWise(RingList rL, Position prev2)<br>{<br>    Position firstP = rL-&gt;prevXORnext;<br>    Position prev1 = firstP;<br>    printf(“%d”, firstP-&gt;data);<br>    Position cur = (Position)((LL)prev1-&gt;prevXORnext ^ (LL)(prev2));<br>    while (cur != firstP)<br>    {<br>        printf(“ %d”, cur-&gt;data);<br>        prev2 = prev1;<br>        prev1 = cur;<br>        cur = (Position)((LL)prev1-&gt;prevXORnext ^ (LL)(prev2));<br>    }<br>    printf(“\n”);<br>}<br><br>void AntiClockWise(RingList rL, Position next2)<br>{<br>    Position firstP = rL-&gt;prevXORnext;<br>    Position next1 = firstP;<br>    printf(“%d”, firstP-&gt;data);<br>    Position cur = (Position)((LL)next1-&gt;prevXORnext ^ (LL)(next2));<br>    while (cur != firstP)<br>    {<br>        printf(“ %d”, cur-&gt;data);<br>        next2 = next1;<br>        next1 = cur;<br>        cur = (Position)((LL)next1-&gt;prevXORnext ^ (LL)(next2));<br>    }<br>    printf(“\n”);<br>}<br></cstdio></code><br></pre><br></details>
       
     </div>
     
@@ -466,6 +466,10 @@ struct Node
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/29/markdown仅使用标签折叠代码/" rel="prev" title="markdown仅使用标签折叠代码">
+                markdown仅使用标签折叠代码 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -537,7 +541,7 @@ struct Node
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
