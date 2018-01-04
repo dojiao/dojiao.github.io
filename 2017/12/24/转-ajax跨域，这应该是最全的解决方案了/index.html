@@ -92,7 +92,13 @@
 <meta property="og:image" content="https://dojiao.github.io/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/dojiao.github.io/images/img_ajax_crossDomain_2.png">
 <meta property="og:image" content="https://dojiao.github.io/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/dojiao.github.io/images/img_ajax_crossDomain_10.png">
 <meta property="og:image" content="https://dojiao.github.io/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/dojiao.github.io/images/img_ajax_crossDomain_4.png">
-<meta property="og:updated_time" content="2018-01-04T17:20:11.378Z">
+<meta property="og:image" content="https://dojiao.github.io/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/dojiao.github.io/images/3437876-789a9377798bed17.png">
+<meta property="og:image" content="https://dojiao.github.io/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/dojiao.github.io/images/3437876-deb1907c0e989544.png">
+<meta property="og:image" content="https://dojiao.github.io/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/dojiao.github.io/images/3437876-68580e32a1ec10c2.png">
+<meta property="og:image" content="https://dojiao.github.io/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/dojiao.github.io/images/3437876-7e83e90ff6066372.jpg">
+<meta property="og:image" content="https://dojiao.github.io/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/dojiao.github.io/images/3437876-d362b883707206c9.png">
+<meta property="og:image" content="https://dojiao.github.io/2017/12/24/转-ajax跨域，这应该是最全的解决方案了/dojiao.github.io/images/3437876-2315c9fb2d0096d3.png">
+<meta property="og:updated_time" content="2018-01-04T17:22:55.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[转] ajax跨域，这应该是最全的解决方案了">
 <meta name="twitter:description" content="原文链接https://dailc.github.io/2017/03/22/ajaxCrossDomainSolution.html 前言从刚接触前端开发起，跨域这个词就一直以很高的频率在身边重复出现，一直到现在，已经调试过N个跨域相关的问题了，16年时也整理过一篇相关文章，但是感觉还是差了点什么，于是现在重新梳理了一下。 个人见识有限，如有差错，请多多见谅，欢迎提出issue，另外看到这个标题">
@@ -433,7 +439,7 @@ function foo(data) {
     &quot;test&quot;: &quot;testData&quot;
 });    
 </code></pre></li>
-<li><p>由于\<script>元素请求的脚本，直接作为代码运行。这时，只要浏览器定义了foo函数，该函数就会立即调用。作为参数的JSON数据被视为JavaScript对象，而不是字符串，因此避免了使用JSON.parse的步骤。</p>
+<li><p>由于&lt;script&gt;元素请求的脚本，直接作为代码运行。这时，只要浏览器定义了foo函数，该函数就会立即调用。作为参数的JSON数据被视为JavaScript对象，而不是字符串，因此避免了使用JSON.parse的步骤。</p>
 </li>
 </ul>
 <p>注意,一般的JSONP接口和普通接口返回数据是有区别的,所以接口如果要做JSONO兼容,需要进行判断是否有对应callback关键字参数,如果有则是JSONP请求,返回JSONP数据,否则返回普通数据</p>
@@ -478,7 +484,7 @@ header(&apos;Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Typ
 });
 </code></pre><h2 id="JAVA后台配置"><a href="#JAVA后台配置" class="headerlink" title="JAVA后台配置"></a>JAVA后台配置</h2><p>JAVA后台配置只需要遵循如下步骤即可:</p>
 <ul>
-<li>第一步:获取依赖jar包<br>下载 <a href="https://dailc.github.io/staticResource/blog/basicKnowledge/ajax/resource/cors-filter-2.4.jar">cors-filter-1.7.jar</a>, <a href="https://dailc.github.io/staticResource/blog/basicKnowledge/ajax/resource/java-property-utils-1.9.1.jar">java-property-utils-1.9.jar</a> 这两个库文件放到lib目录下。(放到对应项目的webcontent/WEB-INF/lib/下)</li>
+<li>第一步:获取依赖jar包<br>下载 <a href="https://dailc.github.io/staticResource/blog/basicKnowledge/ajax/resource/cors-filter-2.4.jar" target="_blank" rel="noopener">cors-filter-1.7.jar</a>, <a href="https://dailc.github.io/staticResource/blog/basicKnowledge/ajax/resource/java-property-utils-1.9.1.jar" target="_blank" rel="noopener">java-property-utils-1.9.jar</a> 这两个库文件放到lib目录下。(放到对应项目的webcontent/WEB-INF/lib/下)</li>
 <li><p>第二步:如果项目用了Maven构建的,请添加如下依赖到pom.xml中:(非maven请忽视)</p>
 <pre><code>&lt;dependency&gt;
     &lt;groupId&gt;com.thetransactioncompany&lt;/groupId&gt;
@@ -594,15 +600,15 @@ Access-Control-Allow-Origin: *
 <h1 id="写在最后的话"><a href="#写在最后的话" class="headerlink" title="写在最后的话"></a>写在最后的话</h1><p>跨域是一个老生常谈的话题，网上也有大量跨域的资料，并且有不少精品(比如阮一峰前辈的)，但是身为一个前端人员不应该浅尝而止，故而才有了本文。</p>
 <p>漫漫前端路，望与诸君共勉之！</p>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html">浏览器同源政策及其规避方法(阮一峰)</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html">跨域资源共享 CORS 详解(阮一峰)</a></li>
-<li><a href="http://www.cnblogs.com/dailc/p/5893341.html">本人之前在cnblog上的文章</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="noopener">浏览器同源政策及其规避方法(阮一峰)</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">跨域资源共享 CORS 详解(阮一峰)</a></li>
+<li><a href="http://www.cnblogs.com/dailc/p/5893341.html" target="_blank" rel="noopener">本人之前在cnblog上的文章</a></li>
 </ul>
 <h2 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h2><p>初次发布<code>2017.03.22</code>于个人博客</p>
 <ul>
-<li><a href="http://www.dailichun.com/2017/03/22/ajaxCrossDomainSolution.html">http://www.dailichun.com/2017/03/22/ajaxCrossDomainSolution.html</a></li>
+<li><a href="http://www.dailichun.com/2017/03/22/ajaxCrossDomainSolution.html" target="_blank" rel="noopener">http://www.dailichun.com/2017/03/22/ajaxCrossDomainSolution.html</a></li>
 </ul>
-</script></p></li></ul>
+
       
     </div>
     
@@ -777,7 +783,7 @@ Access-Control-Allow-Origin: *
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#提纲"><span class="nav-number">2.</span> <span class="nav-text">提纲</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是ajax跨域"><span class="nav-number">3.</span> <span class="nav-text">什么是ajax跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax跨域的原理"><span class="nav-number">3.1.</span> <span class="nav-text">ajax跨域的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CROS请求原理"><span class="nav-number">3.2.</span> <span class="nav-text">CROS请求原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何判断是否是简单请求"><span class="nav-number">3.3.</span> <span class="nav-text">如何判断是否是简单请求?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax跨域的表现"><span class="nav-number">3.4.</span> <span class="nav-text">ajax跨域的表现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何解决ajax跨域"><span class="nav-number">4.</span> <span class="nav-text">如何解决ajax跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP方式解决跨域问题"><span class="nav-number">4.1.</span> <span class="nav-text">JSONP方式解决跨域问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现原理"><span class="nav-number">4.2.</span> <span class="nav-text">实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现流程"><span class="nav-number">4.3.</span> <span class="nav-text">实现流程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#提纲"><span class="nav-number">2.</span> <span class="nav-text">提纲</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是ajax跨域"><span class="nav-number">3.</span> <span class="nav-text">什么是ajax跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax跨域的原理"><span class="nav-number">3.1.</span> <span class="nav-text">ajax跨域的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CROS请求原理"><span class="nav-number">3.2.</span> <span class="nav-text">CROS请求原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何判断是否是简单请求"><span class="nav-number">3.3.</span> <span class="nav-text">如何判断是否是简单请求?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax跨域的表现"><span class="nav-number">3.4.</span> <span class="nav-text">ajax跨域的表现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何解决ajax跨域"><span class="nav-number">4.</span> <span class="nav-text">如何解决ajax跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP方式解决跨域问题"><span class="nav-number">4.1.</span> <span class="nav-text">JSONP方式解决跨域问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现原理"><span class="nav-number">4.2.</span> <span class="nav-text">实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现流程"><span class="nav-number">4.3.</span> <span class="nav-text">实现流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用注意"><span class="nav-number">4.4.</span> <span class="nav-text">使用注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS解决跨域问题"><span class="nav-number">4.5.</span> <span class="nav-text">CORS解决跨域问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP后台配置"><span class="nav-number">4.6.</span> <span class="nav-text">PHP后台配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js后台配置-express框架"><span class="nav-number">4.7.</span> <span class="nav-text">Node.js后台配置(express框架)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA后台配置"><span class="nav-number">4.8.</span> <span class="nav-text">JAVA后台配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NET后台配置"><span class="nav-number">4.9.</span> <span class="nav-text">.NET后台配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理请求方式解决接口跨域问题"><span class="nav-number">4.10.</span> <span class="nav-text">代理请求方式解决接口跨域问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何分析ajax跨域"><span class="nav-number">5.</span> <span class="nav-text">如何分析ajax跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#抓包请求数据"><span class="nav-number">5.1.</span> <span class="nav-text">抓包请求数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例一-正常的ajax请求"><span class="nav-number">5.2.</span> <span class="nav-text">示例一(正常的ajax请求)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例二-跨域错误的ajax请求"><span class="nav-number">5.3.</span> <span class="nav-text">示例二(跨域错误的ajax请求)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例三-与跨域无关的ajax请求"><span class="nav-number">5.4.</span> <span class="nav-text">示例三(与跨域无关的ajax请求)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多"><span class="nav-number">5.5.</span> <span class="nav-text">更多</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写在最后的话"><span class="nav-number">6.</span> <span class="nav-text">写在最后的话</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录"><span class="nav-number">7.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">7.1.</span> <span class="nav-text">参考资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客"><span class="nav-number">7.2.</span> <span class="nav-text">博客</span></a></li></ol></li></ol></div>
             
 
           </div>
